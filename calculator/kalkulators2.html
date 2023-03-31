@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		input[type="text"] {
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		}
+		input[type="button"] {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h2>Calculator</h2>
+	<form name="calculator">
+		<label for="num1">Enter first number:</label>
+		<input type="text" name="num1" id="num1"><br><br>
+		<label for="operator">Enter operator (+, -, *, /):</label>
+		<input type="text" name="operator" id="operator"><br><br>
+		<label for="num2">Enter second number:</label>
+		<input type="text" name="num2" id="num2"><br><br>
+		<input type="button" value="Calculate" onclick="calculate()"><br><br>
+		<label for="result">Result:</label>
+		<input type="text" name="result" id="result" readonly><br><br>
+	</form>
+	<script>
+		function calculate() {
+			const num1 = parseFloat(document.forms.calculator.num1.value);
+			const num2 = parseFloat(document.forms.calculator.num2.value);
+			const operator = document.forms.calculator.operator.value;
+			let result;
+
+			if (operator === '+') {
+				result = num1 + num2;
+			} else if (operator === '-') {
+				result = num1 - num2;
+			} else if (operator === '*') {
+				result = num1 * num2;
+			} else if (operator === '/') {
+				result = num1 / num2;
+			}
+
+			document.forms.calculator.result.value = result;
+		}
+	</script>
+</body>
+</html>
