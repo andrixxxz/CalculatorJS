@@ -1,20 +1,20 @@
-let expression = '';
+let inputs = '';
 
 function append(value) {
-  expression += value;
-  document.getElementById('result').value = expression;
+  inputs += value;
+  document.getElementById('result').value = inputs;
 }
 
 function clearResult() {
-  expression = '';
-  document.getElementById('result').value = expression;
+  inputs = '';
+  document.getElementById('result').value = inputs;
 }
 
 function calculate() {
   try {
-    const result = eval(expression);
-    expression = result.toString();
-    document.getElementById('result').value = expression;
+    const result = eval(inputs);
+    inputs = result
+    document.getElementById('result').value = inputs;
   } catch (error) {
     alert('Invalid expression');
   }
