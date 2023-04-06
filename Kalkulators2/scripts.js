@@ -59,9 +59,21 @@ class Calculator{
   }
 
   getDisplayNumber(number){
-    const floatNumber = parseFloat(number)
-    if (isNaN(floatNumber)) return ''
-    return floatNumber.toLocaleString('en')
+    const stringNumber = number.toString()
+    const integerDigits = parseFloat(stringNumber.split('.')[0])
+    const decimalDigits = stringNumber.split('.')[1]
+    let integerDisplay
+    if (isNaN(integerDigits)){
+      integerDisplay = ''
+    } else {
+      integerDisplay = integerDigits.toLocaleString('en', {maximumFractionDigits: 0})
+    }
+    if (decimalDigits !=null){
+      return `${integerDigits}.${decimalDigits}`
+    }
+    else{
+      return integerDisplay
+    }
   }
   
 
@@ -71,6 +83,8 @@ class Calculator{
     if (this.operation != null){
       this.previousoperandtext.innerText = 
       `${this.getDisplayNumber(this.previousoperand)} ${this.operation}`
+    } else{
+      this.previousoperandtext.innerText = ''
     }
     
   }
